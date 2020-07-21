@@ -58,15 +58,11 @@ app.use(cors({origin: config.CLIENT_BASE_URL, credentials: true}));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-<<<<<<< HEAD:app.js
-app.use(cookieParser());
-=======
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
-
->>>>>>> upstream/master:api/app.js
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
