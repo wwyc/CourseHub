@@ -157,7 +157,7 @@ export const addReviewReview = (payload) => {
 
 export const checkStatus = () => {
     return function(dispatch , getState) {
-        return fetch(`http://localhost:9000/auth/checkStatus`, {credentials: 'include'})
+        return fetch(`/auth/checkStatus`, {credentials: 'include'})
         .then(response => response.json())
         .then(data => {
             dispatch(authenticated(data));
@@ -174,7 +174,7 @@ export const checkStatus = () => {
 
 export const logout = () => {
     return function (dispatch, getState) {
-        return fetch(`http://localhost:9000/auth/logout`, {credentials: 'include'})
+        return fetch(`/auth/logout`, {credentials: 'include'})
         .then(response => response.json())
         .then(data => {
             dispatch(authenticated(data));
@@ -189,21 +189,21 @@ export const logout = () => {
     }
 }
 
-export const fetchReviews = () => {
-  return function(dispatch, getState) {
-    return fetch(`http://localhost:9000/reviews`)
-      .then(
-				data => data.json())
-      .then(data => {
-					dispatch(fetched_reviews(data))}
-      )
-      .catch(err => console.log(err));
-  };
-};
+// export const fetchReviews = () => {
+//   return function(dispatch, getState) {
+//     return fetch(`http://localhost:9000/reviews`)
+//       .then(
+// 				data => data.json())
+//       .then(data => {
+// 					dispatch(fetched_reviews(data))}
+//       )
+//       .catch(err => console.log(err));
+//   };
+// };
 
 export const fetchReviews = (courseId) => {
   return function(dispatch, getState) {
-    return fetch(`http://localhost:9000/reviews/course/`+courseId)
+    return fetch(`/reviews/course/`+courseId)
       .then(
 				data => data.json())
       .then(data => {
