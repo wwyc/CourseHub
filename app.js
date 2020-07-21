@@ -6,7 +6,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
-require('dotenv').config();
+// require('dotenv').config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -18,7 +18,7 @@ var app = express();
 //connect to mongo db
 const mongoose = require('mongoose');
 const config = process.env;
-mongoose.connect('mongodb+srv://' + config.DB_USER  + ':' + config.DB_PW + '@sandbox-7vuqw.mongodb.net/' + config.DB_DBNAME + '?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://' + process.env.DB_USER  + ':' + process.env.DB_PW + '@sandbox-7vuqw.mongodb.net/' + process.env.DB_DBNAME + '?retryWrites=true&w=majority')
   .then( () => {
     console.log('Connection to the Atlas Cluster is successful!')
   })
