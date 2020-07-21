@@ -70,6 +70,14 @@ app.use('/courses', coursesRouter);
 app.use('/reviews', reviewsRouter);
 app.use('/auth', authRouter);
 
+app.get('/reviews/course', function(req, res) {
+  var courseId = req.query.valid;
+  console.log(courseId)
+  const path = path.join(__dirname, "couresId"
+  console.log(path)
+  res.redirect(path);
+});
+
 app.use(history({verbose: true}));
 
 app.use(express.static(path.join(__dirname, "react_app", "build")))
