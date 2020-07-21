@@ -54,7 +54,7 @@ app.use(
     maxAge: 24 * 60 * 60 * 100
   })
 );
-app.use(cors({origin: config.CLIENT_BASE_URL, credentials: true}));
+app.use(cors({origin: process.env.CLIENT_BASE_URL, credentials: true}));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
